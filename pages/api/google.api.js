@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 import { GoogleUser } from "../../models/google";
 
 // Allowed admin email
-const ADMIN_EMAIL = ["cartellord77@gmail.com", "cartellord010@gmail.com"];
+const ADMIN_EMAIL = [
+  "cartellord77@gmail.com",
+  "cartellord010@gmail.com",
+  "shopwithchychy@gmail.com",
+];
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
