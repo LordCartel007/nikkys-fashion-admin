@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-import { GoogleUser } from "../../models/google"; // Adjust the path as needed
+import { GoogleUser } from "../../models/google";
 
 // Allowed admin email
-const ADMIN_EMAIL = "cartellord77@gmail.com";
+const ADMIN_EMAIL = ["cartellord77@gmail.com", "cartellord010@gmail.com"];
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   const { email, name, picture, email_verified } = req.body;
 
-  if (email !== ADMIN_EMAIL) {
+  if (!ADMIN_EMAIL.includes(email)) {
     return res.status(403).json({ success: false, message: "Unauthorized" });
   }
 
